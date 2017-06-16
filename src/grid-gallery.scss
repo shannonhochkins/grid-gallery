@@ -1,0 +1,83 @@
+$ngGridPanelColor: #444;
+
+grid-panel {
+    display: block;
+
+    .align {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .align-item {
+      max-width: 50%;
+    }
+
+
+    grid-panel-item {
+        display: inline-block;
+        vertical-align: top;
+
+        cursor: pointer;
+    }
+
+    grid-panel-content {
+        position: relative;
+        display: block;
+        visibility: hidden;
+        margin-top: 10px;
+        &.is-closing {
+            margin-top:0;
+        }
+        
+        > .content-wrapper {
+            color: #fff;
+            background-color: $ngGridPanelColor;
+            max-height: 0rem;
+            visibility: hidden;    
+            overflow: hidden;
+        }
+
+        &.is-panel > .content-wrapper {
+          visibility: visible;
+        }
+
+        .triangle {
+
+            width: 0;
+            height: 0;
+
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+
+            border-bottom: 15px solid $ngGridPanelColor;
+
+            position: absolute;
+            margin-top: -15px;
+            top: 0;
+
+            transition: left ease-out 0.2s;
+        }
+
+        h3 {
+            transition: padding ease-in-out 0.2s;
+        }
+
+        .close-x {
+            position: absolute;
+            top:0;
+            right:0;
+            margin: 2px 5px;
+            cursor: pointer;
+
+            font-size: 20px;
+
+            &:before {
+                content: "\00D7";
+            }
+        }
+
+   
+    }
+
+}
